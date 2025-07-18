@@ -7,4 +7,3 @@ import { registeringUser } from '../controllers/registeringUser.js'
 router.post('/register',registeringUser)
 
 export default router
-d
