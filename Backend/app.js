@@ -5,13 +5,15 @@ const app = express();
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoute.js";
 import connectDB from "./config/connectDB.js";
-
+import notesRoute from './routes/notesRoute.js'
+import authMiddleware from './middleware/authMiddleware.js'
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
 
 // Routes
 app.use("/api", userRoute);
+app.use("/api", authMiddleware, notesRoute);
 
 //Server + DB connection
 const startServer = async () => {
