@@ -16,6 +16,7 @@ const Login = () => {
       await axios.post("http://localhost:5000/api/login", form, {
         withCredentials: true,
       });
+      navigate("/notes")
     } catch (error) {
       setToast(error.response.data.message);
     }
