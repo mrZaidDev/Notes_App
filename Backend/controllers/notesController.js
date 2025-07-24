@@ -98,3 +98,8 @@ export const gettingSingleNote = async (req, res) => {
     return res.status(200).json(findNote);
   } catch (error) {}
 };
+// Checking whether authenticated or not
+export const checkingAuth = async (req,res) => {
+  const userId = req.user.id
+  return res.status(200).json({user:userId,isAuthenticated:true})
+}

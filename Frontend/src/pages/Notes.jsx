@@ -39,7 +39,7 @@ const Notes = () => {
   return (updateModel ?
     // UpdateNote component
      <UpdateNote updateModel={updateModel} setUpdateModel={setUpdateModel} noteId={noteId} /> : 
-    // AllNotes component
+    // AllNotes component0
   <div>
       <aside className="h-screen left-0 fixed border-r-1  text-gray-200 max-w-[12%] min-w-[7%] flex items-start justify-center">
         <button
