@@ -16,7 +16,7 @@ const CreateNote = () => {
       await axios.post("http://localhost:5000/api/notes", note, {
         withCredentials: true,
       });
-      navigate('/notes')
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
@@ -26,7 +26,7 @@ const CreateNote = () => {
     <div className="m-auto max-w-[80%] border h-[80vh] mt-20 p-5 flex flex-col gap-10 md:max-w-[500px] rounded-xl relative">
       {/* Cross Button */}
       <button className="w-[32px] h-[32px] bg-blue-500 flex items-center justify-center rounded-[50%] cursor-pointer absolute top-0 right-0 m-3 " onClick={()=>
-      navigate('/notes')}>
+      navigate('/')}>
         <IoClose className="text-3xl text-white " />
       </button>
       {/* Form Title */}

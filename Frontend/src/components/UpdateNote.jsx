@@ -45,7 +45,7 @@ const UpdateNote = ({ updateModel, setUpdateModel, noteId }) => {
       {/* Cross Button */}
       <button
         className="w-[32px] h-[32px] bg-blue-500 flex items-center justify-center rounded-[50%] cursor-pointer absolute top-0 right-0 m-3 "
-        onClick={() => navigate("/notes")}
+        onClick={() => setUpdateModel(false)}
       >
         <IoClose className="text-3xl text-white " />
       </button>

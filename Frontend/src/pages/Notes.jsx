@@ -42,12 +42,12 @@ const Notes = () => {
     // AllNotes component0
   <div>
       <aside className="h-screen left-0 fixed border-r-1  text-gray-200 max-w-[12%] min-w-[7%] flex items-start justify-center">
-        <button
+        {/* <button
           className="lg:text-3xl sm:text-2xl bg-blue-500 text-white py-[4px] px-3 rounded-[50%] cursor-pointer mt-5"
           onClick={() => navigate("/create")}
         >
           +
-        </button>
+        </button> */}
       </aside>
       <section className="w-[88%] h-screen absolute right-0 p-5">
         {/* Notes Title */}
