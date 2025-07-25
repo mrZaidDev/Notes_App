@@ -8,8 +8,10 @@ import connectDB from "./config/connectDB.js";
 import notesRoute from "./routes/notesRoute.js";
 import authMiddleware from "./middleware/authMiddleware.js";
 import cors from "cors";
+import path from 'path'
 
 // Middlewares
+const __dirname = path.resolve()
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
@@ -20,6 +22,10 @@ app.use(cors({
 // Routes
 app.use("/api", userRoute);
 app.use("/api", authMiddleware, notesRoute);
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname,'/Frontend/dist')))
+}
 
 //Server + DB connection
 const startServer = async () => {
