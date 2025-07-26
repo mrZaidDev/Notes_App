@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import axios from "axios";
+import axiosInstance from "../axios";
 
 const UpdateNote = ({ updateModel, setUpdateModel, noteId }) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const UpdateNote = ({ updateModel, setUpdateModel, noteId }) => {
 
   const getSingleNote = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/notes/${noteId}`, {
+      const res = await axiosInstance.get(`/notes/${noteId}`, {
         withCredentials: true,
       });
       setNote({ ...note, title: res.data.title, content: res.data.content });
@@ -27,8 +28,8 @@ const UpdateNote = ({ updateModel, setUpdateModel, noteId }) => {
   const handleNoteUpdate = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.put(
-        `http://localhost:5000/api/notes/${noteId}`,
+      const res = await axiosInstance.put(
+        `/notes/${noteId}`,
         note,
         {
           withCredentials: true,

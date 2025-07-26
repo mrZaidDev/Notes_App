@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import axiosInstance from '../axios.jsx'; // adjust the path if needed
 const Login = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -13,7 +13,7 @@ const Login = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/login", form, {
+      await axiosInstance.post("/login", form, {
         withCredentials: true,
       });
       navigate("/")

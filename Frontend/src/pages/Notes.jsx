@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UpdateNote from "../components/UpdateNote";
+import axiosInstance from "../axios";
 
 const Notes = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Notes = () => {
   }, [updateModel]);
   const fetchUserNotes = async () => {
     try {
-      const allNotes = await axios.get("http://localhost:5000/api/notes", {
+      const allNotes = await axiosInstance.get("/notes", {
         withCredentials: true,
       });
       setUserNotes(allNotes.data);
@@ -26,7 +27,7 @@ const Notes = () => {
   };
   const deleteNote = async (noteId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${noteId}`, {
+      await axiosInstance.delete(`/notes/${noteId}`, {
         withCredentials: true,
       });
       const filtered = userNotes.filter((elem) => noteId != elem._id);

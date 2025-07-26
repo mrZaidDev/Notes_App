@@ -2,6 +2,8 @@ import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import axiosInstance from "../axios";
+
 
 const CreateNote = () => {
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const CreateNote = () => {
   const handleNoteCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/notes", note, {
+      await axiosInstance.post("/notes", note, {
         withCredentials: true,
       });
       navigate('/')
